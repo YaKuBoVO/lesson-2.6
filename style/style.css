@@ -1,0 +1,151 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   /*overflow-x: hidden;*/
+}
+
+body {
+   background-color: #4e4c4c;
+}
+
+.menutoggle {
+   width: 100%;
+   background-color: beige;
+}
+.menutoggle input {
+   display: none;
+}
+.menutoggle ul {
+   padding: 20px;
+}
+.menutoggle li {
+   display: inline-block;
+   padding: 0 20px;
+   font-size: 20px;
+}
+.menutoggle a {
+   text-decoration: none;
+   color: #232323;
+   transition: color .3s ease;
+}
+.menutoggle a:hover {
+   color: tomato;
+}
+
+@media only screen and (max-width: 800px) {
+   .menutoggle {
+      display: block;
+      position: relative;
+      top: 50px;
+      left: 5px;
+      z-index: 1;
+      background: none;
+   }
+   .menutoggle input {
+      display: block;
+      position: absolute;
+      width: 40px;
+      height: 32px;
+      top: 0;
+      left: 0;
+      cursor: pointer;
+      z-index: 2;
+      opacity: 0;
+   }
+   .menutoggle span {
+      display: block;
+      width: 33px;
+      height: 4px;
+      margin-bottom: 5px;
+      background-color: #c6c6c6;
+      border-radius: 3px;
+      z-index: 1;
+      position: relative;
+      transform-origin: 4px 0;
+      transition: background-color 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),opacity ease;
+   }
+
+   #menu {
+      position: relative;
+      width: 300px;
+      padding: 8px;
+      top: 5px;
+      left: 0;
+      background-color: #cdcdcd;
+      list-style: none;
+      transform-origin: 0 0;
+      transform: translate(-130%, 0);
+      transition: transform .5s ease;
+   }
+   .menutoggle li {
+      display: block;
+      padding: 10px;
+   }
+   .menutoggle #check:checked ~ ul {
+      transform: translate(0, 0px);
+   }
+}
+
+
+
+
+
+
+
+form {
+   position: relative;
+   width: 350px;
+   margin: 45px auto;
+   top: 50px;
+}
+
+.group {
+   position: relative;
+   margin: 45px auto;
+}
+
+.type {
+   background: none;
+   display: block;
+   width: 350px;
+   padding: 10px 10px 10px 5px;
+   border: none;
+   border-bottom: 2px solid #c6c6c6;
+}
+input:focus {
+   outline: none;
+}
+input:focus ~ label {
+   top: -14px;
+   font-size: 12px;
+   color: aqua;
+}
+input:focus ~ .bar::before {
+   width: 100%;
+}
+
+label {
+   position: absolute;
+   font-size: 16px;
+   font-weight: normal;
+   transition: .4s ease all;
+   pointer-events: none;
+   color: #c6c6c6;
+   top: 10px;
+   left: 8px;
+}
+.bar {
+   display: block;
+   position: relative;
+}
+
+.bar::before {
+   content: '';
+   width: 0;
+   height: 2px;
+   position: absolute;
+   background-color: aqua;
+   transition: .4s ease all;
+   bottom: 0;
+}
